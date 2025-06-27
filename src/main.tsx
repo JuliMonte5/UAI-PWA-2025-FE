@@ -6,6 +6,7 @@ import { HomePage } from "./pages/HomePage/HomePage.tsx";
 import { Tutorials } from "./pages/Tutorials/Tutorials.tsx";
 import { Tutorial } from "./pages/Tutorials/components/Tutorial.tsx";
 import { FallBack } from "./pages/HomePage/components/FallBack.tsx";
+import { ContactForm } from "./pages/ContactForm/ContactForm.tsx";
 
 const router = createBrowserRouter([
   { path: "/", element: <HomePage />, errorElement: <FallBack /> },
@@ -19,6 +20,7 @@ const router = createBrowserRouter([
       },
     ],
   },
+  { path: "/contact", element: <ContactForm /> },
 ]);
 
 createRoot(document.getElementById("root")!).render(
