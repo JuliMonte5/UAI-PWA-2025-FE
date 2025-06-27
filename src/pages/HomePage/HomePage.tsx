@@ -10,6 +10,10 @@ const Sections = [
     title: "Documentation",
     link: "/docs",
   },
+  {
+    title: "Contact Form",
+    link: "/contact",
+  },
 ];
 
 export const HomePage = () => {
