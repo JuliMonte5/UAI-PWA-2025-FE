@@ -7,9 +7,25 @@ import { Tutorials } from "./pages/Tutorials/Tutorials.tsx";
 import { Tutorial } from "./pages/Tutorials/components/Tutorial.tsx";
 import { FallBack } from "./pages/HomePage/components/FallBack.tsx";
 import { ContactForm } from "./pages/ContactForm/ContactForm.tsx";
+import PrivateRoute from "./components/privateRoute/PrivateRoute.tsx";
+import { Login } from "./components/auth/login/Login.tsx";
+import { Register } from "./components/auth/register/Register.tsx";
+import { AuthProvider } from "./contexts/authContext/index.tsx";
 
 const router = createBrowserRouter([
-  { path: "/", element: <HomePage />, errorElement: <FallBack /> },
+  {
+    path: "/",
+    element: <PrivateRoute component={HomePage} />,
+    errorElement: <FallBack />,
+  },
+  {
+    path: "/login",
+    element: <Login />,
+  },
+  {
+    path: "/register",
+    element: <Register />,
+  },
   {
     path: "/tutorials",
     element: <Tutorials />,
@@ -25,6 +41,8 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
-    <RouterProvider router={router} />
+    <AuthProvider>
+      <RouterProvider router={router} />
+    </AuthProvider>
   </StrictMode>
 );
